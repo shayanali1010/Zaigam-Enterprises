@@ -1,24 +1,12 @@
-import localFont from "next/font/local";
 import "./globals.css";
-import { Inter } from 'next/font/google';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import ScrollProgress from '@/components/common/ScrollProgress';
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ScrollProgress from "@/components/common/ScrollProgress";
 
 export const metadata = {
-  title: 'Zaigam Enterprises | Construction Company',
-    description: 'Leading construction company specializing in steel work, waterproofing, road construction, and sewerage systems.',
+  title: "Zaigam Enterprises | Construction Company",
+  description:
+    "Leading construction company specializing in steel work, waterproofing, road construction, and sewerage systems.",
 };
 
 export default function RootLayout({ children }) {

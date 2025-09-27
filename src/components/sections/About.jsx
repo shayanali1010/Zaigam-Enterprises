@@ -1,55 +1,68 @@
 // src/components/sections/About.jsx
 "use client";
-import { motion } from 'framer-motion';
-import Container from '@/components/common/Container';
-import { fadeInUp } from '@/components/utils/animations'; // Fixed import path
-import Image from 'next/image';
-import aboutImage from '../../../public/images/about_image.jpg'
+import { motion } from "framer-motion";
+import Container from "@/components/common/Container";
+import { fadeInUp } from "@/components/utils/animations";
+import Image from "next/image";
+import aboutImage from "../../../public/images/about_image.jpg";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-800">
-      <Container>
+    <section id="about" className="bg-white dark:bg-gray-800">
+      <Container className="py-10">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="relative"
+              className="relative w-full rounded-xl overflow-hidden shadow-xl"
             >
               <Image
-                height='100%'
-                width='100%'
-                src={aboutImage} 
-                alt="Construction" 
-                className="rounded-xl shadow-xl w-full"
+                src={aboutImage}
+                alt="Construction"
+                width={800}
+                className="w-full h-[400px] md:h-[500px] object-cover"
+                priority
               />
-              <div className="absolute inset-0 bg-primary-500/20 rounded-xl"></div>
+              <div className="absolute inset-0 bg-primary-500/20"></div>
             </motion.div>
           </div>
           <div className="md:w-1/2 md:pl-12">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About Zaigam Enterprises</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+                About Zaigam Enterprises
+              </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-6">
-                At Zaigam Enterprises, we are committed to transforming visions into reality through exceptional construction services. Specializing in steel work, waterproofing, road construction, and sewerage systems, we pride ourselves on delivering high-quality solutions that meet the highest standards.
+                At Zaigam Enterprises, we are committed to transforming visions
+                into reality through exceptional construction services.
+                Specializing in steel work, waterproofing, road construction,
+                and sewerage systems, we pride ourselves on delivering
+                high-quality solutions that meet the highest standards.
               </p>
               <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2 text-primary-600 dark:text-primary-400">Our Mission</h3>
+                <h3 className="text-xl font-semibold mb-2 text-primary-600 dark:text-primary-400">
+                  Our Mission
+                </h3>
                 <p className="text-gray-700 dark:text-gray-300">
-                  To deliver high-quality, sustainable construction solutions that enhance infrastructure and build lasting communities.
+                  To deliver high-quality, sustainable construction solutions
+                  that enhance infrastructure and build lasting communities.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2 text-primary-600 dark:text-primary-400">Our Vision</h3>
+                <h3 className="text-xl font-semibold mb-2 text-primary-600 dark:text-primary-400">
+                  Our Vision
+                </h3>
                 <p className="text-gray-700 dark:text-gray-300">
-                  To be the leading construction company, recognized for our innovation, excellence, and commitment to shaping a better tomorrow.
+                  To be the leading construction company, recognized for our
+                  innovation, excellence, and commitment to shaping a better
+                  tomorrow.
                 </p>
               </div>
             </motion.div>
