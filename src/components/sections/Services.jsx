@@ -36,7 +36,7 @@ const Services = () => {
         id: "allConstruction",
         title: "All Construction Work",
         description:
-          "Expert in building and  banglow all construction work",
+          "Expert in building and  banglow all construction work",
         image: constructionImage,
       },
       {
@@ -95,6 +95,30 @@ const Services = () => {
     setSelectedService(null);
   }, []);
 
+  // Handle navigation to sections without changing URL
+  const handleNavigateToSection = useCallback((href) => {
+    const targetId = href.replace("#", "");
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Get navbar height for offset
+      const navbar = document.querySelector('nav');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+      // Calculate position with offset
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL without hash
+      window.history.pushState(null, '', window.location.pathname);
+    }
+  }, []);
+
   return (
     <section id="services" className="bg-gray-50 dark:bg-gray-900 py-20">
       <Container>
@@ -122,7 +146,6 @@ const Services = () => {
                     src={service.image}
                     alt={service.title}
                     placeholder="blur"
-                    priority={index < 2}
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
@@ -154,7 +177,13 @@ const Services = () => {
           variants={fadeInUp}
           className="mt-16 text-center"
         >
-          <Button href="#contact" variant="primary">
+          <Button 
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavigateToSection("#contact");
+            }} 
+            variant="primary"
+          >
             Discuss Your Project
           </Button>
         </motion.div>
