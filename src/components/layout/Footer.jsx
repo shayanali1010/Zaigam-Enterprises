@@ -2,6 +2,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { PiBuildingsFill } from "react-icons/pi";
 import {
   FaArrowRight,
   FaEnvelope,
@@ -11,7 +12,6 @@ import {
   FaExternalLinkAlt,
   FaRoad,
   FaRulerCombined,
-  FaHardHat,
   FaShieldAlt,
   FaTint,
   FaHome,
@@ -66,7 +66,6 @@ const ConstructionExpertise = ({ title, items }) => (
           </div>
           <div>
             <h5 className="font-medium text-white">{item.title}</h5>
-            <p className="text-sm text-gray-400">{item.description}</p>
           </div>
         </div>
       ))}
@@ -103,12 +102,13 @@ const Footer = () => {
   ];
 
   const constructionExpertise = [
+    { icon: <PiBuildingsFill />, title: "Building & Bungalow Construction" },
     { icon: <FaRoad />, title: "Road Construction" },
     { icon: <FaRulerCombined />, title: "Paver Work" },
-    { icon: <FaHardHat />, title: "Shuttering Work" },
+    // { icon: <FaHardHat />, title: "Shuttering Work" },
     { icon: <FaShieldAlt />, title: "Waterproofing" },
     { icon: <FaTint />, title: "Sewerage Systems" },
-    { icon: <FaHome />, title: "House Construction" },
+    { icon: <FaHome />, title: "Construction Work" },
   ];
 
   const contactInfo = [

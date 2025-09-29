@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/common/ScrollProgress";
 
 export const metadata = {
-  title: "Zaigam Enterprises | Construction Company",
+  title: "Zaigam Enterprises",
   description:
     "Leading construction company specializing in steel work, waterproofing, road construction, and sewerage systems.",
 };

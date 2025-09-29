@@ -4,14 +4,15 @@ import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/common/Button";
 import Container from "@/components/common/Container";
-import { fadeInUp, float, pulseGlow } from "@/components/utils/animations";
+import { fadeInUp, float} from "@/components/utils/animations";
 import {
   FaChevronDown,
-  FaArrowRight,
   FaEnvelope,
   FaTimes,
   FaPhone,
   FaMapMarkerAlt,
+  FaHome,
+  FaFlag,
 } from "react-icons/fa";
 import mainImage from "../../../public/images/main_image.png";
 import Image from "next/image";
@@ -228,11 +229,32 @@ const Hero = () => {
                 Building <span className="text-primary-400">Excellence</span> in
                 Construction
               </h1>
+              
+              {/* Government approved line with flag icon */}
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2 mb-4">
+                <div className="flex-shrink-0 p-2 bg-green-500/20 rounded-full">
+                  <FaFlag className="text-green-500 text-lg sm:text-xl" />
+                </div>
+                <div className="font-bold text-green-500 tracking-tight text-center sm:text-left text-sm sm:text-base">
+                  Government of Pakistan Approved Contractor
+                </div>
+              </div>
+              
               <p className="text-xl text-gray-200 mb-8 max-w-2xl">
-                Zaigam Enterprises is a leading construction company
-                specializing in steel work, waterproofing, road construction,
-                and sewerage systems.
+                Zaigam Enterprises is providing comprehensive construction
+                services with a commitment to quality and excellence.
               </p>
+              
+              {/* Dream line with responsive icon */}
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2 mb-6">
+                <div className="flex-shrink-0 p-2 bg-orange-500/20 rounded-full">
+                  <FaHome className="text-orange-500 text-lg sm:text-xl" />
+                </div>
+                <p className="text-lg text-orange-400 font-semibold text-center sm:text-left">
+                  Providing construction services to build your dreams
+                </p>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Button href="#services" variant="primary" className="group">
                   Our Services
@@ -499,7 +521,7 @@ const Hero = () => {
                             isDarkMode ? "text-gray-300" : "text-gray-700"
                           }`}
                         >
-                          123 Construction Lane, Building City, Pakistan
+                          C-35 new rizvia scheme 33
                         </p>
                       </div>
                     </div>

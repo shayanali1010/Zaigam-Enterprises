@@ -9,8 +9,10 @@ import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 
-import ceoImage from "../../../public/images/ceo_image.jpg";
+// import ceoImage from "../../../public/images/ceo_image.jpg";
 import cooImage from "../../../public/images/coo_image.png";
+import ceoImage1 from "../../../public/images/ceo_image1.jpg";
+import partnerImage from "../../../public/images/partner_image.png";
 
 const Team = () => {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -20,7 +22,7 @@ const Team = () => {
       id: "mujtaba",
       name: "Mujtaba Haider",
       position: "Chief Executive Officer (CEO)",
-      image: ceoImage,
+      image: ceoImage1,
       bio: "Mujtaba leads our company with a strong vision for innovation and a commitment to excellence in the construction industry.",
       email: "mujtabahyder575@gmail.com",
     },
@@ -31,6 +33,14 @@ const Team = () => {
       image: cooImage,
       bio: "Raza oversees our operations with a focus on efficiency, quality, and timely delivery of all our projects.",
       email: "contact@zaigam.com",
+    },
+    {
+      id: "grand-partner",
+      name: "Grand Partner",
+      position: "Construction Partner",
+      image: partnerImage,
+      bio: "Our Grand Partner collaborates with Zaigam Enterprises to deliver large-scale construction projects with reliability, expertise, and unmatched quality standards.",
+      email: "info@grandpartner.com",
     },
   ];
 
@@ -73,7 +83,9 @@ const Team = () => {
                       className="object-cover"
                     />
                   </div>
-                  <h3 className="text-2xl text-gray-900 dark:text-white font-bold mb-1">{member.name}</h3>
+                  <h3 className="text-2xl text-gray-900 dark:text-white font-bold mb-1">
+                    {member.name}
+                  </h3>
                   <p className="text-primary-600 dark:text-primary-400 mb-4">
                     {member.position}
                   </p>
@@ -83,10 +95,10 @@ const Team = () => {
                     </p>
                     <div className="flex justify-center space-x-3">
                       <span className="text-gray-600 dark:text-gray-400">
-                        <FaLinkedin className="text-xl" />
+                        <FaLinkedin className="text-xl text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400" />
                       </span>
                       <span className="text-gray-600 dark:text-gray-400">
-                        <FaXTwitter className="text-xl" />
+                        <FaXTwitter className="text-xl text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400" />
                       </span>
                       <a
                         href={`mailto:${member.email}`}

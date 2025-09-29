@@ -10,13 +10,14 @@ import { fadeInUp } from "@/components/utils/animations";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
-import steelImage from "../../../public/images/steel_image.jpg";
 import waterproofingImage from "../../../public/images/waterproofing_image.jpg";
 import roadImage from "../../../public/images/road_image.jpg";
 import sewerageImage from "../../../public/images/sewerage_image.jpg";
 import houseImage from "../../../public/images/house_image.jpg";
 import pavorImage from "../../../public/images/pavor_image.jpg";
-import shuttringImage from "../../../public/images/shuttring_image.jpg";
+import constructionImage from "../../../public/images/allConstruction_image.jpg";
+// import steelImage from "../../../public/images/steel_image.jpg";
+// import shuttringImage from "../../../public/images/shuttring_image.jpg";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -24,12 +25,19 @@ const Services = () => {
 
   const services = useMemo(
     () => [
+      // {
+      //   id: "steel",
+      //   title: "Steel Work",
+      //   description:
+      //     "Expert steel fabrication and installation for structural frameworks.",
+      //   image: steelImage,
+      // },
       {
-        id: "steel",
-        title: "Steel Work",
+        id: "allConstruction",
+        title: "All Construction Work",
         description:
-          "Expert steel fabrication and installation for structural frameworks.",
-        image: steelImage,
+          "Expert in building and  banglow all construction work",
+        image: constructionImage,
       },
       {
         id: "waterproofing",
@@ -53,19 +61,19 @@ const Services = () => {
         image: sewerageImage,
       },
       {
-        id: "house",
-        title: "House Construction",
+        id: "construction",
+        title: "Construction Work",
         description:
           "Complete residential construction services from design to finishing.",
         image: houseImage,
       },
-      {
-        id: "shuttering",
-        title: "Shuttering Work",
-        description:
-          "Precision shuttering solutions for concrete structures of all sizes.",
-        image: shuttringImage,
-      },
+      // {
+      //   id: "shuttering",
+      //   title: "Shuttering Work",
+      //   description:
+      //     "Precision shuttering solutions for concrete structures of all sizes.",
+      //   image: shuttringImage,
+      // },
       {
         id: "paving",
         title: "Paving Services",

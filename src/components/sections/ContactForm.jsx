@@ -60,7 +60,7 @@ const ContactForm = () => {
     {
       icon: <FaMapMarkerAlt className="text-primary-600 dark:text-primary-400" />,
       title: "Address",
-      value: "123 Construction Lane, Building City, Pakistan",
+      value: "C-35 new rizvia scheme 33",
       type: "address",
     },
   ];

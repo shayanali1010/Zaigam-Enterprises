@@ -4,7 +4,8 @@ import { FaCheckCircle, FaTimes } from "react-icons/fa";
 import Button from "@/components/common/Button";
 import Image from "next/image";
 
-import steelImage from "../../../public/images/steel_image.jpg";
+// import steelImage from "../../../public/images/steel_image.jpg";
+import constructionImage from "../../../public/images/allConstruction_image.jpg";
 import waterproofingImage from "../../../public/images/waterproofing_image.jpg";
 import roadImage from "../../../public/images/road_image.jpg";
 import sewerageImage from "../../../public/images/sewerage_image.jpg";
@@ -12,26 +13,46 @@ import houseImage from "../../../public/images/house_image.jpg";
 import pavorImage from "../../../public/images/pavor_image.jpg";
 import shuttringImage from "../../../public/images/shuttring_image.jpg";
 
-// ✅ Static data ko component ke bahar move kar diya
 const serviceData = {
-  steel: {
-    title: "Steel Work",
-    image: steelImage,
+  // steel: {
+  //   title: "Steel Work",
+  //   image: steelImage,
+  //   description:
+  //     "At Zaigam Enterprises, we specialize in high-quality steel work that forms the backbone of robust construction projects. Our expert team handles everything from design and fabrication to installation, ensuring precision and durability at every step.",
+  //   features: [
+  //     "Custom steel fabrication to exact specifications",
+  //     "Structural steel frameworks for buildings and infrastructure",
+  //     "Reinforcement steel for concrete structures",
+  //     "Architectural metalwork and decorative elements",
+  //     "Quality assurance and compliance with international standards",
+  //   ],
+  //   process: [
+  //     "Initial consultation and design planning",
+  //     "Detailed engineering and fabrication drawings",
+  //     "Precision cutting and fabrication in our facility",
+  //     "On-site installation by certified technicians",
+  //     "Final inspection and quality assurance",
+  //   ],
+  // },
+  allConstruction: {
+    title: "All Construction Work",
+    image: constructionImage,
     description:
-      "At Zaigam Enterprises, we specialize in high-quality steel work that forms the backbone of robust construction projects. Our expert team handles everything from design and fabrication to installation, ensuring precision and durability at every step.",
+      "Zaigam Enterprises provides complete construction solutions, covering all aspects of building and infrastructure projects. From foundation to finishing, our experienced team ensures top-quality results for residential, commercial, and industrial projects.",
     features: [
-      "Custom steel fabrication to exact specifications",
-      "Structural steel frameworks for buildings and infrastructure",
-      "Reinforcement steel for concrete structures",
-      "Architectural metalwork and decorative elements",
-      "Quality assurance and compliance with international standards",
+      "Comprehensive building construction and finishing",
+      "Plumbing, sanitary, and sewerage system installations",
+      "Electrical wiring, fittings, and maintenance",
+      "Masonry, carpentry, and concrete works",
+      "Waterproofing, painting, and protective coatings",
+      "Quality materials and skilled workforce",
     ],
     process: [
-      "Initial consultation and design planning",
-      "Detailed engineering and fabrication drawings",
-      "Precision cutting and fabrication in our facility",
-      "On-site installation by certified technicians",
-      "Final inspection and quality assurance",
+      "Initial consultation and project planning",
+      "Detailed design and engineering documentation",
+      "Execution of all construction trades (civil, plumbing, electrical, etc.)",
+      "Regular site supervision and quality monitoring",
+      "Final handover with inspection and client satisfaction",
     ],
   },
   waterproofing: {
@@ -94,11 +115,11 @@ const serviceData = {
       "Backfilling and site restoration",
     ],
   },
-  house: {
-    title: "House Construction",
+  construction: {
+    title: "Construction Work",
     image: houseImage,
     description:
-      "We provide complete house construction services, turning your dream home into reality. From architectural design to final finishing touches, our team ensures quality craftsmanship and attention to detail at every stage.",
+      "We provide complete construction services, turning your dream home into reality. From architectural design to final finishing touches, our team ensures quality craftsmanship and attention to detail at every stage.",
     features: [
       "Custom architectural design and planning",
       "Foundation and structural construction",
@@ -220,19 +241,28 @@ const ServiceModal = ({ serviceId, onClose }) => {
 
           {/* Content */}
           <div className="prose prose-lg max-w-none dark:prose-invert">
-            <p className="text-lg mb-6 text-gray-900 dark:text-white">{service.description}</p>
+            <p className="text-lg mb-6 text-gray-900 dark:text-white">
+              {service.description}
+            </p>
 
-            <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 dark:text-white">Key Features</h3>
+            <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 dark:text-white">
+              Key Features
+            </h3>
             <ul className="space-y-2 mb-6">
               {service.features.map((feature, index) => (
-                <li key={index} className="flex items-start text-gray-900 dark:text-white">
+                <li
+                  key={index}
+                  className="flex items-start text-gray-900 dark:text-white"
+                >
                   <FaCheckCircle className="text-primary-500 mr-2 mt-1 flex-shrink-0" />
                   {feature}
                 </li>
               ))}
             </ul>
 
-            <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 dark:text-white">Our Process</h3>
+            <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-900 dark:text-white">
+              Our Process
+            </h3>
             <ol className="space-y-3">
               {service.process.map((step, index) => (
                 <li key={index} className="flex text-gray-900 dark:text-white">
