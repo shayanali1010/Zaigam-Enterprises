@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import mainImage from "../../../public/images/main_image.png";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -25,6 +26,8 @@ const Hero = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [floatingDots, setFloatingDots] = useState([]);
   const observerRef = useRef(null);
+  const router = useRouter();
+  const isScrolling = useRef(false);
 
   // Memoize floating dots to prevent unnecessary recalculations
   useEffect(() => {
@@ -110,6 +113,37 @@ const Hero = () => {
 
   const handleCloseContactCard = useCallback(() => {
     setShowContactCard(false);
+  }, []);
+
+  // Handle navigation to sections without changing URL
+  const handleNavigateToSection = useCallback((href) => {
+    const targetId = href.replace("#", "");
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      isScrolling.current = true;
+
+      // Get navbar height for offset
+      const navbar = document.querySelector('nav');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+      // Calculate position with offset
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL without hash
+      window.history.pushState(null, '', window.location.pathname);
+
+      // Reset scrolling flag after animation
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 1000);
+    }
   }, []);
 
   // Memoized animation variants
@@ -256,7 +290,14 @@ const Hero = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button href="#services" variant="primary" className="group">
+                <Button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigateToSection("#services");
+                  }} 
+                  variant="primary" 
+                  className="group"
+                >
                   Our Services
                 </Button>
                 <Button
@@ -426,10 +467,13 @@ const Hero = () => {
                       consultation.
                     </p>
                     <Button
-                      href="#contact"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleCloseContactCard();
+                        handleNavigateToSection("#contact");
+                      }}
                       variant="primary"
                       className="w-full"
-                      onClick={handleCloseContactCard}
                     >
                       Contact Form
                     </Button>
